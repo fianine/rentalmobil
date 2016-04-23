@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Rental Mobil</title>
+    <title>Tangerang Rent Car</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>public/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -43,31 +43,20 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Rental Mobil</a>
+                <a class="navbar-brand" href="#">Tangerang Rent Car</a>
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="#">Beranda</a></li>
+                  <li><a href="#">Kendaraan</a></li>
                   <li><a href="#">Layanan</a></li>
                   <li><a href="#about">Persyaratan</a></li>
                   <li><a href="#contact">Reservasi</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li role="separator" class="divider"></li>
-                      <li class="dropdown-header">Nav header</li>
-                      <li><a href="#">Separated link</a></li>
-                      <li><a href="#">One more separated link</a></li>
-                    </ul>
-                  </li>
                 </ul>
                 <div id="navbar" class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
                     <li><?php echo anchor('PagesController/login','Login')?></li>
-                    <li><a href="#">Daftar</a></li>
+                    <li><?php echo anchor('PagesController/daftar','Daftar')?></li>
                   </ul>
                 </div><!--/.navbar-collapse -->
               </div>
@@ -91,7 +80,7 @@
             <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Example headline.</h1>
+                <h1>Pilihan Terbaik Untuk Menyewa Mobil Di Tangerang</h1>
                 <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
               </div>
@@ -168,7 +157,7 @@
             <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="<?php echo base_url() ?>public/assets/img/ex.svg" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="<?php echo base_url() ?>public/assets/img/Honda-All-New-CR-V.jpg" alt="Generic placeholder image">
           </div>
         </div>
 

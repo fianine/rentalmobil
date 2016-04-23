@@ -15,4 +15,9 @@
       $data['content'] = 'PagesController/login';
       $this->load->view('pages/login',$data);
     }
+
+    function daftar(){
+      $data['content'] = 'PagesController/daftar';
+      $this->load->view('pages/register',$data);
+    }
   }

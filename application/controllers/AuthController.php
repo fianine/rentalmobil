@@ -27,7 +27,7 @@
 			 if ($this->session->userdata('level')=='admin') {
 				redirect('admincontroller/dashboard');
 			 }
-			 elseif ($this->session->userdata('level')=='member') {
+			 elseif ($this->session->userdata('level')=='Member') {
 				redirect('membercontroller/home');
 			}
 		  }else {
@@ -41,5 +41,5 @@
 			$this->session->sess_destroy();
 			redirect('AuthController/login');
 		}
-    
+
   }
