@@ -5,10 +5,11 @@
 
     function __construct(){
       parent::__construct();
+
     }
 
     function login($data){
-      $check = $this->db->get_where('rm_users',$data);
+      $check = $this->db->get_where($this->table,$data);
       return $check;
     }
 
@@ -34,4 +35,12 @@
       }
     }
 
+    function getUserById($id){
+        $this->db->select('*');
+        $this->db->where('user_id', $id);
+        $query = $this->db->get($this->table);
+        if ($query->num_rows() == 1) {
+            return $query->row_array();
+        }
+      }
   }

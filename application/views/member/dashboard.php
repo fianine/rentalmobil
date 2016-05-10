@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Tangerang Rent Car</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>public/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -48,9 +48,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li><?php echo anchor('AuthController/logout','Logout',array('class'=>'logout'));?></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -59,46 +56,14 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><?php echo anchor('admincontroller/dashboard','Dashboard')?></li>
-            <li class="active"><?php echo anchor('admincontroller/datamember','Data Member')?></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><?php echo anchor('admincontroller/datamobil','Data Mobil')?></li>
-            <li><a href="">Konfirmasi</a></li>
-            <li><a href="">Data Penyewaan</a></li>
+            <li><?php echo anchor('membercontroller/home','Home') ?></li>
+            <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Ganti Password</a></li>
+            <li><?php echo anchor('membercontroller/datasewa','Data Penyewaan') ?></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <h2 class="sub-header">Data Member</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>Alamat</th>
-                  <th>No.Telp</th>
-                  <th>Option</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if($lihatdatamember): ?>
-                  <?php $no=1; foreach($lihatdatamember as $d): ?>
-                <tr>
-                  <td><?php echo $no ?></td>
-                  <td><?php echo $d['nama'] ?></td>
-                  <td><?php echo $d['email'] ?></td>
-                  <td><?php echo $d['alamat'] ?></td>
-                  <td><?php echo $d['no_telp'] ?></td>
-                  <td><?php echo anchor('admincontroller/hapusmember/' . $d['user_id'],'Hapus',array('class'=>'btn btn-danger btn-xs')) ?></td>
-                </tr>
-                <?php $no++; endforeach; ?>
-              <?php endif; ?>
-              </tbody>
-            </table>
-          </div>
+          <h2 class="sub-header">Selamat Datang</h2>
         </div>
       </div>
     </div>

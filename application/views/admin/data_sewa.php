@@ -60,39 +60,45 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><?php echo anchor('admincontroller/dashboard','Dashboard')?></li>
-            <li class="active"><?php echo anchor('admincontroller/datamember','Data Member')?></li>
+            <li><?php echo anchor('admincontroller/datamember','Data Member')?></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><?php echo anchor('admincontroller/datamobil','Data Mobil')?></li>
-            <li><a href="">Konfirmasi</a></li>
-            <li><a href="">Data Penyewaan</a></li>
+            <li><?php echo anchor('admincontroller/dataverified','Konfirmasi')?></li>
+            <li class="active"><?php echo anchor('admincontroller/datasewa','Data Penyewaan') ?></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-          <h2 class="sub-header">Data Member</h2>
+          <h2 class="sub-header">Data Penyewaan</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>Alamat</th>
-                  <th>No.Telp</th>
+                  <th>Merk Mobil</th>
+                  <th>Platnomor</th>
+                  <th>Lama Sewa</th>
+                  <th>Tanggal</th>
+                  <th>Harga</th>
+                  <th>Total</th>
+                  <th>Konfirmasi</th>
                   <th>Option</th>
                 </tr>
               </thead>
               <tbody>
-                <?php if($lihatdatamember): ?>
-                  <?php $no=1; foreach($lihatdatamember as $d): ?>
+                <?php if($lihatdatasewa): ?>
+                  <?php $no=1; foreach($lihatdatasewa as $d): ?>
                 <tr>
                   <td><?php echo $no ?></td>
-                  <td><?php echo $d['nama'] ?></td>
-                  <td><?php echo $d['email'] ?></td>
-                  <td><?php echo $d['alamat'] ?></td>
-                  <td><?php echo $d['no_telp'] ?></td>
-                  <td><?php echo anchor('admincontroller/hapusmember/' . $d['user_id'],'Hapus',array('class'=>'btn btn-danger btn-xs')) ?></td>
+                  <td><?php echo $d['merk_mobil'] ?></td>
+                  <td><?php echo $d['platnomor'] ?></td>
+                  <td><?php echo $d['lama_sewa'] ?></td>
+                  <td><?php echo $d['tgl_sewa'] ?></td>
+                  <td><?php echo $d['harga'] ?></td>
+                  <td><?php echo $d['total'] ?></td>
+                  <td><?php echo $d['konfirmasi'] ?></td>
+                  <td><?php echo anchor('admincontroller/detailsewa/' . $d['sewa_id'],'Detail',array('class'=>'btn btn-warning btn-xs')) ?> | <?php echo anchor('admincontroller/hapussewa/' . $d['sewa_id'],'Hapus',array('class'=>'btn btn-danger btn-xs')) ?></td>
                 </tr>
                 <?php $no++; endforeach; ?>
               <?php endif; ?>

@@ -22,6 +22,7 @@
 				 $sess_data['user_id'] = $sess->user_id;
 				 $sess_data['email'] = $sess->email;
 				 $sess_data['level'] = $sess->level;
+         $sess_data['isLogin'] = TRUE;
 				 $this->session->set_userdata($sess_data);
 			 }
 			 if ($this->session->userdata('level')=='admin') {

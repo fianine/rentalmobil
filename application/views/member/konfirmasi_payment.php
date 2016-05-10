@@ -48,9 +48,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li><?php echo anchor('AuthController/logout','Logout',array('class'=>'logout'));?></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -59,46 +56,53 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><?php echo anchor('admincontroller/dashboard','Dashboard')?></li>
-            <li class="active"><?php echo anchor('admincontroller/datamember','Data Member')?></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><?php echo anchor('admincontroller/datamobil','Data Mobil')?></li>
-            <li><a href="">Konfirmasi</a></li>
-            <li><a href="">Data Penyewaan</a></li>
+            <li><?php echo anchor('membercontroller/home','Home') ?></li>
+            <li><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Ganti Password</a></li>
+            <li class="active"><?php echo anchor('membercontroller/datasewa','Data Penyewaan') ?></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <h2 class="sub-header">Data Member</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>Alamat</th>
-                  <th>No.Telp</th>
-                  <th>Option</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if($lihatdatamember): ?>
-                  <?php $no=1; foreach($lihatdatamember as $d): ?>
-                <tr>
-                  <td><?php echo $no ?></td>
-                  <td><?php echo $d['nama'] ?></td>
-                  <td><?php echo $d['email'] ?></td>
-                  <td><?php echo $d['alamat'] ?></td>
-                  <td><?php echo $d['no_telp'] ?></td>
-                  <td><?php echo anchor('admincontroller/hapusmember/' . $d['user_id'],'Hapus',array('class'=>'btn btn-danger btn-xs')) ?></td>
-                </tr>
-                <?php $no++; endforeach; ?>
-              <?php endif; ?>
-              </tbody>
-            </table>
-          </div>
+          <h2 class="sub-header">Konfirmasi Pembayaran</h2>
+          <?php echo form_open_multipart('membercontroller/submitpayment') ?>
+          <table>
+            <tr>
+              <td>
+                <input type="hidden" name="sewa_id" value="<?php echo $getDataSewaID['sewa_id'] ?>">
+                <input type="text" class="form-control" name="no_identitas" placeholder="No.Identitas" size="50">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="form-control" name="atas_nama" placeholder="Atas Nama" size="50">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="form-control" name="nama_bank" placeholder="Nama Bank" size="50">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="form-control" name="jumlah_transfer" placeholder="Jumlah Transfer" size="50">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select class="btn-warning" name="jenis_transfer">
+                  <option>Jenis Transfer</option>
+                  <option value="DP">DP</option>
+                  <option value="Full">Full</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button type="submit" name="button" class="btn btn-primary">Kirim</button>
+              </td>
+            </tr>
+          </table>
+          <?php echo form_close() ?>
         </div>
       </div>
     </div>

@@ -47,8 +47,8 @@
               </div>
               <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li class="active"><?php echo anchor('/','Beranda')?></li>
-                  <li><?php echo anchor('pagescontroller/kendaraan','Kendaraan')?></li>
+                  <li><?php echo anchor('/','Beranda')?></li>
+                  <li class="active"><?php echo anchor('pagescontroller/kendaraan','Kendaraan')?></li>
                   <li><a href="#about">Persyaratan</a></li>
                 </ul>
                 <div id="navbar" class="navbar-collapse collapse">
@@ -132,46 +132,41 @@
       <!-- Wrap the rest of the page in another container to center all the content. -->
 
       <div class="container marketing">
-        <!-- START THE FEATURETTES -->
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="<?php echo base_url() ?>public/assets/img/Honda-All-New-CR-V.jpg" alt="Generic placeholder image">
-          </div>
-        </div>
 
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="">
+            <img class="img-responsive" src="<?php echo base_url() ?>public/assets/upload/<?php echo $showDetail['gambar'] ?>" alt="<?php echo base_url() ?>public/assets/upload/<?php echo $showDetail['gambar'] ?>" width="500px"/>
+          </div>
+
+          <div class="table-responsive" style="float:left;margin-left: 548px;margin-top: -298px;">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Merk</th>
+                  <th>Tipe</th>
+                  <th>Tahun</th>
+                  <th>Kapasitas</th>
+                  <th>Harga Sewa</th>
+                  <th>Platnomor</th>
+                  <th>Sewa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo $showDetail['merk_mobil'] ?></td>
+                  <td><?php echo $showDetail['tipe_mobil'] ?></td>
+                  <td><?php echo $showDetail['tahun'] ?></td>
+                  <td><?php echo $showDetail['kapasitas'] ?></td>
+                  <td><?php echo $showDetail['harga'] ?></td>
+                  <td><?php echo $showDetail['platnomor'] ?></td>
+                  <td><?php echo anchor('authcontroller/login','Lanjutkan',array('class'=>'btn btn-primary btn-xs')) ?></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /.row -->
         <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 col-md-push-5">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" src="<?php echo base_url() ?>public/assets/img/Honda-All-New-CR-V.jpg" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="<?php echo base_url() ?>public/assets/img/Honda-All-New-CR-V.jpg" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
-
-
         <!-- FOOTER -->
         <footer>
           <p class="pull-right"><a href="#">Back to top</a></p>

@@ -1,10 +1,14 @@
 <?php
   class AdminController extends CI_Controller{
 
+    var $table = 'rm_sewa';
+
     function __construct(){
       parent::__construct();
       $this->load->model('UserModel');
       $this->load->model('MobilModel');
+      $this->load->model('SewaModel');
+      $this->load->model('VerifiedModel');
       if($this->session->userdata('email')=="") {
 					redirect('AuthController/login');
 			}
@@ -22,6 +26,12 @@
       $data['content'] = 'AdminController/datamember';
       $data['email'] = $this->session->userdata('email');
       $this->load->view('admin/data_member',$data);
+    }
+
+    function hapusmember($id){
+      $this->db->where('user_id',$id);
+      $this->db->delete('rm_users');
+      redirect('admincontroller/datamember');
     }
 
     function datamobil(){
@@ -63,5 +73,53 @@
 					redirect('admincontroller/datamobil');
 				}
     }
+
+    function hapusmobil($id){
+      $this->db->where('mobil_id',$id);
+      $this->db->delete('rm_merkmobil');
+      redirect('admincontroller/datamobil');
+    }
+
+    function datasewa(){
+      $data['email'] = $this->session->userdata('email');
+      $data['content'] = 'admincontroller/datasewa';
+      $data['lihatdatasewa'] = $this->SewaModel->showSewa();
+      $this->load->view('admin/data_sewa',$data);
+    }
+
+    function detailsewa($id){
+      $data['order'] = $this->SewaModel->getById($id);
+        if (empty($data['order'])) {
+            redirect('admincontroller/datasewa');
+        }
+      $data['content'] = 'admincontroller/detailsewa';
+      $data['verified'] = $this->VerifiedModel->getVerBySewaID($data['order']['sewa_id']);
+      $data['orderdetail'] = $this->SewaModel->showSewa();
+      $data['user'] = $this->UserModel->getUserById($data['order']['user_id']);
+      $this->load->view('admin/detail_sewa',$data);
+    }
+
+    function verified($id){
+      $data = array(
+        'konfirmasi' => 'Verified'
+      );
+
+      $this->db->where('sewa_id', $id);
+      $this->db->update($this->table, $data);
+      redirect('admincontroller/datasewa');
+    }
+
+    function dataverified(){
+      $data['content'] = 'admincontroller/dataverified';
+      $data['lihatdataver'] = $this->SewaModel->showVerified();
+      $this->load->view('admin/data_verified',$data);
+    }
+
+    function hapussewa($id){
+      $this->db->where('sewa_id',$id);
+      $this->db->delete('rm_sewa');
+      redirect('admincontroller/datasewa');
+    }
+
   }
 ?>

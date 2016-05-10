@@ -48,9 +48,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li><?php echo anchor('AuthController/logout','Logout',array('class'=>'logout'));?></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -64,8 +61,8 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li class="active"><?php echo anchor('admincontroller/datamobil','Data Mobil')?></li>
-            <li><a href="">Konfirmasi</a></li>
-            <li><a href="">Data Penyewaan</a></li>
+            <li><?php echo anchor('admincontroller/dataverified','Konfirmasi')?></li>
+            <li><?php echo anchor('admincontroller/datasewa','Data Penyewaan') ?></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

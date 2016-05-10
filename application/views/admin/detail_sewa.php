@@ -48,9 +48,6 @@
           <ul class="nav navbar-nav navbar-right">
             <li><?php echo anchor('AuthController/logout','Logout',array('class'=>'logout'));?></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -60,43 +57,86 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li><?php echo anchor('admincontroller/dashboard','Dashboard')?></li>
-            <li class="active"><?php echo anchor('admincontroller/datamember','Data Member')?></li>
+            <li><?php echo anchor('admincontroller/datamember','Data Member')?></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><?php echo anchor('admincontroller/datamobil','Data Mobil')?></li>
-            <li><a href="">Konfirmasi</a></li>
-            <li><a href="">Data Penyewaan</a></li>
+            <li><?php echo anchor('admincontroller/dataverified','Konfirmasi')?></li>
+            <li class="active"><?php echo anchor('admincontroller/datasewa','Data Penyewaan') ?></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-          <h2 class="sub-header">Data Member</h2>
+          <h2 class="sub-header">Data Detail Penyewaan</h2>
+
+          <h3 class="sub-header">Detail Penyewa</h3>
           <div class="table-responsive">
             <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Nama</th>
-                  <th>Email</th>
-                  <th>Alamat</th>
-                  <th>No.Telp</th>
-                  <th>Option</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php if($lihatdatamember): ?>
-                  <?php $no=1; foreach($lihatdatamember as $d): ?>
-                <tr>
-                  <td><?php echo $no ?></td>
-                  <td><?php echo $d['nama'] ?></td>
-                  <td><?php echo $d['email'] ?></td>
-                  <td><?php echo $d['alamat'] ?></td>
-                  <td><?php echo $d['no_telp'] ?></td>
-                  <td><?php echo anchor('admincontroller/hapusmember/' . $d['user_id'],'Hapus',array('class'=>'btn btn-danger btn-xs')) ?></td>
-                </tr>
-                <?php $no++; endforeach; ?>
-              <?php endif; ?>
-              </tbody>
+              <tr>
+                <td><strong>Atas Nama</strong></td><td><?php echo $user['nama'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Email</strong></td><td><?php echo $user['email'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>No.Telp</strong></td><td><?php echo $user['no_telp'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Alamat</strong></td><td><?php echo $user['alamat'] ?></td>
+              </tr>
+            </table>
+          </div>
+
+          <hr class="featurette-divider">
+
+          <h3 class="sub-header">Detail Kendaraan</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <td><strong>Merk Mobil</strong></td><td><?php echo $order['merk_mobil'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Platnomor</strong></td><td><?php echo $order['platnomor'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Harga</strong></td><td><?php echo $order['harga'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td><td><?php echo $order['total'] ?></td>
+              </tr>
+            </table>
+          </div>
+
+          <h3 class="sub-header">Konfirmasi Pembayaran</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <td><strong>No.Identitas</strong></td><td><?php echo $verified['no_identitas'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Atas Nama</strong></td><td><?php echo $verified['atas_nama'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Via Bank</strong></td><td><?php echo $verified['nama_bank'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Jumlah Transfer</strong></td><td><?php echo $verified['jumlah_transfer'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Jenis Transfer</strong></td><td><?php echo $verified['jenis_transfer'] ?></td>
+              </tr>
+              <tr>
+                <td><strong>Tanggal Transfer</strong></td><td><?php echo $verified['tgl_transfer'] ?></td>
+              </tr>
+            </table>
+          </div>
+
+          <h3 class="sub-header">Status Konfirmasi</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <td><strong>Konfimasi</strong></td><td><?php echo $order['konfirmasi'] ?></td> <td><?php echo anchor('admincontroller/verified/'.$order['sewa_id'],'Verified',array('class'=>'btn btn-primary btn-xs')) ?></td>
+              </tr>
             </table>
           </div>
         </div>

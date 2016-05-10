@@ -47,6 +47,11 @@
             <a href="#">Lupa Password</a>
           </label>
         </div>
+        <div>
+          <label>
+            <?php echo anchor('authcontroller/register','Register',array('class'=>'left')) ?>
+          </label>
+        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <?php echo form_close() ?>
 

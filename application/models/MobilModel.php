@@ -19,4 +19,9 @@
     function getQuery($datainput){
       $q = $this->db->query($datainput);
     }
+
+    function showDetail($id){
+      $param = array('mobil_id' => $id);
+      return $this->db->get_where($this->table,$param);
+    }
   }
